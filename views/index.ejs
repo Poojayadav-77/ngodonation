@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NGO Donation Portal</title>
+  <style>
+    body { font-family: Arial; background: #f4f4f4; text-align: center; }
+    .card {
+      background: white; padding: 20px; margin: 20px; border-radius: 8px;
+      display: inline-block; width: 250px; box-shadow: 0 0 8px #ccc;
+    }
+    a.button {
+      display: inline-block; background: #4CAF50; color: white;
+      padding: 5px 10px; text-decoration: none; border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌍 NGO Donation Portal</h1>
+  <a class="button" href="/add-ngo">➕ Add NGO</a>
+  <a class="button" href="/about">ℹ️ About</a>
+
+  <h2>Registered NGOs</h2>
+
+  <% if (ngos.length === 0) { %>
+    <p>No NGOs registered yet.</p>
+  <% } else { %>
+    <% ngos.forEach(ngo => { %>
+      <div class="card">
+        <h3><%= ngo.name %></h3>
+        <p><b>Cause:</b> <%= ngo.cause %></p>
+        <p><b>Location:</b> <%= ngo.location %></p>
+        <p><b>Email:</b> <%= ngo.email %></p>
+        <a href="/update/<%= ngo._id %>" class="button">✏️ Edit</a>
+        <a href="/delete/<%= ngo._id %>" class="button" style="background:#f44336;">🗑️ Delete</a>
+      </div>
+    <% }) %>
+  <% } %>
+
+</body>
+</html>
+

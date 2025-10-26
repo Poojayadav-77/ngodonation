@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update NGO</title>
+</head>
+<body style="text-align:center; font-family:Arial;">
+  <h1>Update NGO Details</h1>
+  <form method="POST" action="/update/<%= ngo._id %>">
+    <input type="text" name="ngoName" value="<%= ngo.name %>" required><br><br>
+    <input type="text" name="cause" value="<%= ngo.cause %>" required><br><br>
+    <input type="text" name="location" value="<%= ngo.location %>" required><br><br>
+    <input type="email" name="email" value="<%= ngo.email %>" required><br><br>
+    <button type="submit">Update NGO</button>
+  </form>
+  <br>
+  <a href="/">Back to Home</a>
+</body>
+</html>
+

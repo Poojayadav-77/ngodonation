@@ -1,0 +1,8 @@
+<h2>Donations for {{username}}</h2>
+<button (click)="donate()">Donate 100 to Education</button>
+
+<ul>
+  <li *ngFor="let d of donations">
+    {{d.cause}} - ₹{{d.amount}} ({{d.date | date:'short'}})
+  </li>
+</ul>

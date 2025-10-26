@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NGO Donation Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <h1>NGO Donation Hub</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="ngos.html">NGOs</a></li>
+      <li><a href="donations.html">Donations</a></li>
+      <li><a href="add-ngo.html">Add NGO</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>NGO Campaigns</h2>
+    <button class="new-btn">Add New NGO</button>
+    <input type="text" placeholder="Search NGOs..." class="search-box">
+
+    <div class="ngo-list" id="ngoList">
+      <!-- Dynamic NGO cards will load here using JS -->
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<%- include('partials/navbar') %>
+<h2>Donation History</h2>
+<table border="1" cellpadding="5">
+  <tr>
+    <th>Name</th><th>Email</th><th>Amount</th><th>Message</th><th>Date</th><th>Actions</th>
+  </tr>
+  <% donations.forEach(d => { %>
+    <tr>
+      <td><%= d.donorName %></td>
+      <td><%= d.email %></td>
+      <td><%= d.amount %></td>
+      <td><%= d.message %></td>
+      <td><%= d.date.toLocaleDateString() %></td>
+      <td>
+        <a href="/donations/<%= d._id %>/edit">Edit</a>
+        |
+        <form action="/donations/<%= d._id %>?_method=DELETE" method="POST" style="display:inline" onsubmit="return confirm('Are you sure?');">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+  <% }) %>
+</table>

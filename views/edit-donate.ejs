@@ -1,0 +1,14 @@
+<%- include('partials/navbar') %>
+<h2>Edit Donation</h2>
+<form action="/donations/<%= donation._id %>?_method=PUT" method="POST">
+  <label>Name:</label>
+  <input type="text" name="donorName" value="<%= donation.donorName %>" required>
+  <label>Email:</label>
+  <input type="email" name="email" value="<%= donation.email %>">
+  <label>Amount:</label>
+  <input type="number" name="amount" value="<%= donation.amount %>" required step="0.01">
+  <label>Message:</label>
+  <textarea name="message"><%= donation.message %></textarea>
+  <button type="submit">Update</button>
+  <a href="/history">Cancel</a>
+</form>
