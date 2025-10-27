@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const ngoSchema = new mongoose.Schema({
-  name: String,
-  cause: String,
+  name: { type: String, required: true },
+  description: String,
   location: String,
-  email: String
+  contact: String,
 });
 
-module.exports = mongoose.model('NGO', ngoSchema);
+module.exports = mongoose.model("NGO", ngoSchema);

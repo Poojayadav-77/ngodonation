@@ -1,42 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>NGO Donation Portal</title>
-  <style>
-    body { font-family: Arial; background: #f4f4f4; text-align: center; }
-    .card {
-      background: white; padding: 20px; margin: 20px; border-radius: 8px;
-      display: inline-block; width: 250px; box-shadow: 0 0 8px #ccc;
-    }
-    a.button {
-      display: inline-block; background: #4CAF50; color: white;
-      padding: 5px 10px; text-decoration: none; border-radius: 4px;
-    }
-  </style>
-</head>
-<body>
+<% layout('layout') %>
+<h1>All Donations</h1>
 
-  <h1>🌍 NGO Donation Portal</h1>
-  <a class="button" href="/add-ngo">➕ Add NGO</a>
-  <a class="button" href="/about">ℹ️ About</a>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Amount</th>
+    <th>Message</th>
+    <th>Date</th>
+    <th>Actions</th>
+  </tr>
 
-  <h2>Registered NGOs</h2>
-
-  <% if (ngos.length === 0) { %>
-    <p>No NGOs registered yet.</p>
-  <% } else { %>
-    <% ngos.forEach(ngo => { %>
-      <div class="card">
-        <h3><%= ngo.name %></h3>
-        <p><b>Cause:</b> <%= ngo.cause %></p>
-        <p><b>Location:</b> <%= ngo.location %></p>
-        <p><b>Email:</b> <%= ngo.email %></p>
-        <a href="/update/<%= ngo._id %>" class="button">✏️ Edit</a>
-        <a href="/delete/<%= ngo._id %>" class="button" style="background:#f44336;">🗑️ Delete</a>
-      </div>
-    <% }) %>
-  <% } %>
-
-</body>
-</html>
-
+  <% donations.forEach(donation => { %>
+  <tr>
+    <td><%= donation.name %></td>
+    <td>₹<%= donation.amount %></td>
+    <td><%= donation.message %></td>
+    <td><%= donation.date.toDateString() %></td>
+    <td>
+      <a href="/update/<%= donation._id %>" class="btn edit">Edit</a>
+      <a href="/delete/<%= donation._id %>" class="btn delete">Delete</a>
+    </td>
+  </tr>
+  <% }) %>
+</table>

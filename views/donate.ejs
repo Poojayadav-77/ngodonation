@@ -1,13 +1,9 @@
-<%- include('partials/navbar') %>
-<h2>Make a Donation</h2>
-<form action="/donations" method="POST">
-  <label>Name:</label>
-  <input type="text" name="donorName" required>
-  <label>Email:</label>
-  <input type="email" name="email">
-  <label>Amount:</label>
-  <input type="number" name="amount" required step="0.01">
-  <label>Message:</label>
-  <textarea name="message"></textarea>
+<% layout('layout') %>
+<h1>Make a Donation</h1>
+
+<form action="/donate" method="POST" class="form">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="number" name="amount" placeholder="Amount (₹)" required />
+  <textarea name="message" placeholder="Message"></textarea>
   <button type="submit">Donate</button>
 </form>

@@ -1,0 +1,9 @@
+<% layout('layout') %>
+<h1>Update Donation</h1>
+
+<form action="/update/<%= donation._id %>" method="POST" class="form">
+  <input type="text" name="name" value="<%= donation.name %>" required />
+  <input type="number" name="amount" value="<%= donation.amount %>" required />
+  <textarea name="message"><%= donation.message %></textarea>
+  <button type="submit">Update</button>
+</form>
